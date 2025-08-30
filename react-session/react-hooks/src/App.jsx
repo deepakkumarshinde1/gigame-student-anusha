@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useReducer, useRef } from "react";
 import { initialStateUsers, userReducer } from "./reducers/user.reducer";
 import InputComp from "./components/InputComp";
+import ClassComp from "./components/ClassComp";
 
 function App() {
   let userName = useRef(null);
@@ -21,15 +22,16 @@ function App() {
   }, []);
   useLayoutEffect(() => {}, []);
 
-  getUserData = () => {
+  let getUserData = () => {
     userName.current.getValue();
     password.current.getValue();
   };
   return (
     <div>
       App
-      <InputComp ref={userName} />
-      <InputComp ref={password} />
+      {/* <InputComp ref={userName} /> */}
+      {/* <InputComp ref={password} /> */}
+      <ClassComp text="hello" />
     </div>
   );
 }
