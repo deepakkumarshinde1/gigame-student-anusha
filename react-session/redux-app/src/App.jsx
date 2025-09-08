@@ -4,15 +4,18 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "./redux/counter.slice";
-import { getProductList } from "./redux/service/product.service";
+import { getProductList } from "./redux/product.slice";
 
 function App() {
   let dispatch = useDispatch();
   let { count } = useSelector((state) => state.counter);
   let { list } = useSelector((state) => state.product);
-
+  let [login] = useState({
+    username: "",
+    password: "",
+  });
   useEffect(() => {
-    dispatch(getProductList());
+    dispatch(getProductList(login));
   }, []);
   return (
     <>
